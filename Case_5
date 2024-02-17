@@ -1,0 +1,49 @@
+Business Case: Identifying Invalid Tweets
+
+Background:
+As part of our social media platform, we maintain a database table called "Tweets," which stores all user-generated tweets. Each tweet is associated with a unique tweet ID and contains textual content. It's crucial to identify and manage invalid tweets, as they can impact the user experience and platform integrity.
+
+Problem Statement:
+We need to develop a solution to identify invalid tweets from the "Tweets" table based on specific criteria. A tweet is considered invalid if the number of characters in its content exceeds 15 characters.
+
+Objective:
+The primary objective is to create a SQL query that selects the tweet IDs of invalid tweets from the "Tweets" table. The result should include the tweet IDs of all tweets with content lengths greater than 15 characters.
+
+Requirements:
+1. Develop a SQL query to select the tweet IDs from the "Tweets" table.
+2. Use a condition to filter out tweets with content lengths strictly greater than 15 characters.
+3. Return the result table containing the tweet IDs of invalid tweets in any order.
+
+Data:
+The "Tweets" table contains the following columns:
+- `tweet_id` (Primary Key): The unique identifier for each tweet.
+- `content`: The textual content of the tweet.
+
+Example:
+Suppose we have the following data in our "Tweets" table:
+```
++----------+----------------------------------+
+| tweet_id | content                          |
++----------+----------------------------------+
+| 1        | Vote for Biden                   |
+| 2        | Let us make America great again! |
++----------+----------------------------------+
+```
+
+The SQL query should return:
+```
++----------+
+| tweet_id |
++----------+
+| 2        |
++----------+
+```
+
+Conclusion:
+By implementing this solution, we can effectively identify and manage invalid tweets on our social media platform, ensuring a better user experience and maintaining the integrity of our platform's content.
+
+Solution:
+
+SELECT tweet_id
+FROM Tweets
+WHERE LENGTH(content) > 15;
