@@ -1,0 +1,50 @@
+Background:
+In our content management system, we maintain a database called "Views" that records viewer interactions with articles. Each row in this table indicates when a viewer viewed an article written by an author. However, it's essential to identify authors who have viewed their own articles, as this information can provide insights into author engagement and audience interaction.
+
+Problem Statement:
+We need to develop a solution to identify authors who have viewed at least one of their own articles from the "Views" table. An author is considered to have viewed their own article if the author_id matches the viewer_id.
+
+Objective:
+The primary objective is to create a SQL query that selects the distinct author_id values of authors who have viewed at least one of their own articles. The result should be sorted by author_id in ascending order.
+
+Requirements:
+
+Develop a SQL query to select distinct author_id values from the "Views" table.
+Use a condition to filter authors who have viewed their own articles (author_id = viewer_id).
+Sort the results by author_id in ascending order.
+Data:
+The "Views" table contains the following columns:
+
+article_id: The ID of the article viewed.
+author_id: The ID of the author who wrote the article.
+viewer_id: The ID of the viewer who viewed the article.
+view_date: The date when the viewing occurred.
+
+Input: 
+Views table:
++------------+-----------+-----------+------------+
+| article_id | author_id | viewer_id | view_date  |
++------------+-----------+-----------+------------+
+| 1          | 3         | 5         | 2019-08-01 |
+| 1          | 3         | 6         | 2019-08-02 |
+| 2          | 7         | 7         | 2019-08-01 |
+| 2          | 7         | 6         | 2019-08-02 |
+| 4          | 7         | 1         | 2019-07-22 |
+| 3          | 4         | 4         | 2019-07-21 |
+| 3          | 4         | 4         | 2019-07-21 |
++------------+-----------+-----------+------------+
+Output: 
++------+
+| id   |
++------+
+| 4    |
+| 7    |
++------+
+
+Solution:
+
+SELECT DISTINCT author_id AS id
+FROM Views
+WHERE author_id = viewer_id
+ORDER BY id ASC;
+
