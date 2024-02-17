@@ -1,5 +1,7 @@
 SQL-Case-Solutions
+
 Motivation
+
 This repo contains several SQL solutions for cases from various websites, attempted in order to practice my SQL programming skills. I attempted all questions to corroborate my knowledge of SQL.
 
 Description
