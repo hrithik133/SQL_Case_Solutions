@@ -1,0 +1,44 @@
+Background
+In a database, we manage customer data where each customer may be referred by another customer. Our goal is to identify customers who were not referred by a specific customer, in this case, the customer with id = 2.
+
+Database Schema
+The database contains a single table named Customer, outlined below:
+
+Table: Customer
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
+| referee_id  | int     |
++-------------+---------+
+
+id is the primary key for this table and represents the customer's unique identifier.
+name is the customer's name.
+referee_id is the id of the customer who referred them. This can be null if the customer was not referred by another customer.
+Task
+Write an SQL query to find the names of customers who were not referred by the customer with id = 2.
+
+Requirements
+Your SQL query should return the names of the relevant customers.
+The result should be returned in any order.
+
+Consider the following Customer table data:
+
++----+------+------------+
+| id | name | referee_id |
++----+------+------------+
+| 1  | Will | null       |
+| 2  | Jane | null       |
+| 3  | Alex | 2          |
+| 4  | Bill | null       |
+| 5  | Zack | 1          |
+| 6  | Mark | 2          |
++----+------+------------+
+
+Solution:
+
+# Write your MySQL query statement below
+SELECT name
+FROM customer
+WHERE referee_id != 2 OR referee_id IS NULL;
