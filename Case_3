@@ -1,0 +1,39 @@
+Problem Statement:
+We need to develop a data analysis solution to identify "big" countries from our database based on specific criteria. A country is considered "big" if it meets either of the following conditions:
+
+It has an area of at least three million square kilometers (3000000 km²).
+It has a population of at least twenty-five million people (25000000).
+Objective:
+The primary objective is to create a SQL query that retrieves the name, population, and area of the significant countries from the "World" database based on the provided criteria.
+
+Requirements:
+
+Develop a SQL query that selects the name, population, and area columns from the "World" table.
+Use a CASE statement within the SQL query to evaluate each country based on the defined criteria for being "big."
+Filter the results to include only countries that meet the criteria for being "big."
+The query should return the results in any order.
+Data:
+The "World" table contains the following columns:
+
+name (Primary Key): The name of the country.
+continent: The continent to which the country belongs.
+area: The area of the country in square kilometers.
+population: The population of the country.
+gdp: The Gross Domestic Product (GDP) of the country.
+
+World Table:
++-------------+-----------+---------+------------+--------------+
+| name        | continent | area    | population | gdp          |
++-------------+-----------+---------+------------+--------------+
+| Afghanistan | Asia      | 652230  | 25500100   | 20343000000  |
+| Albania     | Europe    | 28748   | 2831741    | 12960000000  |
+| Algeria     | Africa    | 2381741 | 37100000   | 188681000000 |
+| Andorra     | Europe    | 468     | 78115      | 3712000000   |
+| Angola      | Africa    | 1246700 | 20609294   | 100990000000 |
++-------------+-----------+---------+------------+--------------+
+
+Solution
+
+SELECT name, population, area
+FROM World
+WHERE area >= 3000000 OR population >= 25000000;
