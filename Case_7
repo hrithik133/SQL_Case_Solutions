@@ -1,0 +1,43 @@
+Business Case: Sales Reporting Solution Implementation
+
+Problem Statement:
+Our company faces challenges in generating comprehensive sales reports due to the fragmented nature of our data. Currently, sales data is stored in the "Sales" table, containing information such as sale ID, product ID, year, quantity, and price per unit. Additionally, we have a "Product" table, linking product IDs to their respective names. However, there's a lack of streamlined processes to report the product name, year, and price for each sale ID, hindering our ability to analyze sales performance effectively.
+
+Table: Sales
+
++-------------+-------+
+| Column Name | Type  |
++-------------+-------+
+| sale_id     | int   |
+| product_id  | int   |
+| year        | int   |
+| quantity    | int   |
+| price       | int   |
++-------------+-------+
+(sale_id, year) is the primary key (combination of columns with unique values) of this table.
+product_id is a foreign key (reference column) to Product table.
+Each row of this table shows a sale on the product product_id in a certain year.
+Note that the price is per unit.
+ 
+
+Table: Product
+
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| product_id   | int     |
+| product_name | varchar |
++--------------+---------+
+product_id is the primary key (column with unique values) of this table.
+Each row of this table indicates the product name of each product.
+ 
+
+Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+Return the resulting table in any order.
+
+Solution:
+
+SELECT p.product_name, s.year, s.price
+FROM Sales s
+LEFT JOIN Product p
+On s.product_id = p.product_id
