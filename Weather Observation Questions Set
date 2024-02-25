@@ -1,4 +1,4 @@
-This business case proposes a strategy for targeted marketing campaigns focusing on cities with names that start with vowels. It is based on the hypothesis that these cities exhibit unique cultural or economic characteristics that may increase the effectiveness of tailored advertising and promotional efforts.
+This business case proposes a strategy for targeted marketing campaigns focusing on cities based on many different criteria. It is based on the hypothesis that these cities exhibit unique cultural or economic characteristics that may increase the effectiveness of tailored advertising and promotional efforts.
 
 Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
 
@@ -24,6 +24,21 @@ WHERE UPPER(CITY) LIKE 'A%'
 
 Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
 
+Solution:
+
 SELECT COUNT(CITY) - COUNT(DISTINCT(CITY))
 FROM STATION;
 
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+Solution:
+
+(SELECT CITY, CHAR_LENGTH(CITY) AS LENGTH
+FROM STATION
+ORDER BY LENGTH ASC, CITY ASC
+LIMIT 1)
+UNION
+(SELECT CITY, CHAR_LENGTH(CITY) AS LENGTH
+FROM STATION
+ORDER BY LENGTH DESC, CITY ASC
+LIMIT 1);
