@@ -1,0 +1,16 @@
+Problem Statement:
+The Human Resources department requires a systematic method to retrieve an alphabetically ordered list of employee names from the company's database. This list is essential for various HR activities, including communications, performance reviews, and organizing employee records.
+
+Variable and Table Description:
+The 'Employee' table within the company database consists of the following columns:
+
+employee_id: An integer unique identifier for each employee.
+name: A string representing the full name of the employee.
+months: An integer denoting the total number of months the employee has been with the company.
+salary: An integer representing the employee's monthly salary.
+Solution:
+The solution is a simple yet effective SQL query that selects the name column from the Employee table and orders the results in alphabetical order. The query is as follows:
+
+SELECT name
+FROM Employee
+ORDER BY name;
