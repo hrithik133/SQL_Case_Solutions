@@ -110,3 +110,16 @@ WHERE NOT
 ((UPPER(CITY) LIKE 'A%' OR UPPER(CITY) LIKE 'E%' OR UPPER(CITY) LIKE 'I%' OR UPPER(CITY) LIKE 'O%' OR UPPER(CITY) LIKE 'U%') 
 AND
 (UPPER(CITY) LIKE '%A' OR UPPER(CITY) LIKE '%E' OR UPPER(CITY) LIKE '%I' OR UPPER(CITY) LIKE '%O' OR UPPER(CITY) LIKE '%U'));
+
+Problem:
+
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+Answer:
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOUaeiou]' AND 
+CITY NOT REGEXP '[AEIOUaeiou]$';
+
+
