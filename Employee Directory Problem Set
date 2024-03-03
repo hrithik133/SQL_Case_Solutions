@@ -1,0 +1,38 @@
+Problem Statement:
+The Human Resources department requires a systematic method to retrieve an alphabetically ordered list of employee names from the company's database. This list is essential for various HR activities, including communications, performance reviews, and organizing employee records.
+
+Variable and Table Description:
+The 'Employee' table within the company database consists of the following columns:
+
+employee_id: An integer unique identifier for each employee.
+name: A string representing the full name of the employee.
+months: An integer denoting the total number of months the employee has been with the company.
+salary: An integer representing the employee's monthly salary.
+Solution:
+The solution is a simple yet effective SQL query that selects the name column from the Employee table and orders the results in alphabetical order. The query is as follows:
+
+SELECT name
+FROM Employee
+ORDER BY name;
+
+Brief Name:
+Employee Short-term High Earners Report
+
+Problem Statement:
+The finance and HR departments require an efficient method to identify newly hired employees who are already earning above a certain salary threshold. This report will help in budget planning, salary reviews, and assessing the distribution of company resources towards employee compensation.
+
+Variable and Table Description:
+The 'Employee' table in the company's database has the following structure:
+
+employee_id: Integer - a unique identifier for each employee.
+name: String - the employee's full name.
+months: Integer - the total number of months the employee has been working at the company.
+salary: Integer - the employee's monthly salary.
+
+Solution:
+An SQL query is designed to select employee names who have a salary greater than $2000 and have been employed for less than 10 months. The results will be sorted by the employee_id in ascending order to maintain the sequence of hiring. The query is as follows:
+
+SELECT name
+FROM employee
+WHERE salary > 2000 AND months < 10
+ORDER BY employee_id;
