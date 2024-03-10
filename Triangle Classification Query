@@ -1,0 +1,16 @@
+Problem Statement: The task is to classify triangles based on the lengths of their sides stored in a database. The classifications are 'Equilateral' for triangles with three equal sides, 'Isosceles' for those with two equal sides, 'Scalene' for triangles with all sides of different lengths, and 'Not A Triangle' for any set of lengths that cannot form a triangle according to the triangle inequality theorem.
+
+Table Description:
+The table, named TRIANGLES, contains three integer columns, A, B, and C, each representing the length of one side of a triangle. The data type for each column is Integer. Each row in the table represents a different set of side lengths for a triangle.
+
+Solution:
+The solution involves a SQL query that uses a CASE statement to determine the type of triangle (or if the figure is not a triangle at all) based on the values in the A, B, and C columns. The conditions in the CASE statement check the triangle inequality theorem to validate if a figure is a triangle and then classify it accordingly.
+
+SELECT
+    CASE
+        WHEN A + B <= C OR A + C <= B OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B AND A = C THEN 'Equilateral'
+        WHEN A != B AND A != C AND B != C THEN 'Scalene'
+        ELSE 'Isosceles'
+    END AS TType
+FROM TRIANGLES;
