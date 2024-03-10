@@ -1,0 +1,23 @@
+Problem Statement: The aim is to generate two specific sets of data from the OCCUPATIONS table:
+
+An alphabetically sorted list of names with the first letter of their occupation in parentheses.
+The count of each occupation type, sorted by count and alphabetically, with a specific sentence format.
+Table Description:
+The OCCUPATIONS table has two columns, Name and Occupation. Name is a string representing the name of the person, and Occupation is a string that describes their profession, which can be one of the following: Doctor, Professor, Singer, or Actor.
+
+Solution:
+
+Name and Occupation First Letter:
+To create an alphabetically ordered list of names with their occupation's first letter, we use the CONCAT function and the LEFT function to extract the first letter from the Occupation column.
+
+SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')') AS NameAndOccupation
+FROM OCCUPATIONS
+ORDER BY Name;
+
+Occupation Count:
+To count the number of occurrences of each occupation and present them in the required format, we use the COUNT function and GROUP BY statement. We then order the result by the count in ascending order and, in case of ties, alphabetically by occupation name.
+
+SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ', LOWER(Occupation), 's.')
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(Occupation), Occupation;
